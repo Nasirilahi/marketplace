@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, Text, Image} from 'react-native';
 import {useSelector} from 'react-redux';
 import AddToCartButton from '../AddToCart';
@@ -75,4 +75,4 @@ const ProductCard = (props: ProductCardProps) => {
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

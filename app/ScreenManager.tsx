@@ -1,5 +1,4 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,8 +6,8 @@ import IconMat from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from './screens/Home';
 import LoginScreen from './screens/Login';
 import CartScreen from './screens/Cart';
-import ThankYou from './screens/ThankYou';
-
+import ThankYouScreen from './screens/ThankYou';
+import CategoriesScreen from './screens/Categories';
 import {Colors} from './constants';
 
 const Stack = createStackNavigator();
@@ -26,14 +25,6 @@ const AuthRoutes = () => {
     </Stack.Navigator>
   );
 };
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Catgories!</Text>
-    </View>
-  );
-}
 
 const AppRoutes = () => {
   return (
@@ -56,7 +47,7 @@ const AppRoutes = () => {
       />
       <Tab.Screen
         name="Categories"
-        component={SettingsScreen}
+        component={CategoriesScreen}
         options={{
           tabBarIcon: ({color}) => (
             <IconMat
@@ -104,7 +95,7 @@ const ScreenManager = () => {
       />
       <Stack.Screen
         name="Thankyou"
-        component={ThankYou}
+        component={ThankYouScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

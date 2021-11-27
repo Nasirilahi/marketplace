@@ -7,12 +7,16 @@ import styles from './ListHeaderStyles';
 import {Colors} from '../../constants';
 
 interface ListHeaderProps {
-  searchText?: string;
-  setSearchText?: () => void;
-  navigation: {};
+  searchText: string;
+  setSearchText: (text: string) => void;
+  navigation: any;
 }
 
-const ListHeader = ({searchText, setSearchText, navigation}: ListHeaderProps) => {
+const ListHeader = ({
+  searchText,
+  setSearchText,
+  navigation,
+}: ListHeaderProps) => {
   const cartCount = useSelector(state => state.cartReducer.carts);
   const hasItemsInCart = cartCount.length > 0;
   return (

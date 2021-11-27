@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {getProductsList} from '../../actions/fetchProductsList';
@@ -8,8 +8,16 @@ import ListHeader from '../../components/ListHeader';
 import {Colors} from '../../constants';
 import {ADD_TO_CART, REMOVE_CART} from '../../constants';
 
-const Home = ({navigation}) => {
+interface HomeProps {
+  navigation: any;
+}
+const Home = ({navigation}: HomeProps) => {
+  const [searchText, setSearchText] = useState('');
   const dispatch = useDispatch();
+  const setSearchTextCallback = useCallback(val => {
+    console.log('searchText', searchText);
+    setSearchText(val);
+  }, []);
   const {isLoading, error, products} = useSelector(
     ({productsData: productsDataStore}) => productsDataStore,
   );
@@ -25,8 +33,6 @@ const Home = ({navigation}) => {
     );
   }
 
-  const renderHeader = () => <ListHeader navigation={navigation} />;
-
   const renderEmpty = () => {
     return (
       <View>
@@ -34,10 +40,10 @@ const Home = ({navigation}) => {
       </View>
     );
   };
-  const onAddToCart = clickedItem => dispatch({type: ADD_TO_CART, clickedItem});
+  const onAddToCart = (clickedItem: object) =>
+    dispatch({type: ADD_TO_CART, clickedItem});
 
   const onRemove = (id: number) => dispatch({type: REMOVE_CART, id});
-
   return (
     <View style={styles.content}>
       {isLoading ? (
@@ -54,7 +60,13 @@ const Home = ({navigation}) => {
           )}
           keyExtractor={product => product.id.toString()}
           ItemSeparatorComponent={() => <View style={styles.seperator} />}
-          ListHeaderComponent={renderHeader}
+          ListHeaderComponent={
+            <ListHeader
+              navigation={navigation}
+              searchText={searchText}
+              setSearchText={setSearchTextCallback}
+            />
+          }
           ListEmptyComponent={renderEmpty}
           stickyHeaderIndices={[0]}
         />
