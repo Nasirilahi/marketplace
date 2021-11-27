@@ -1,0 +1,15 @@
+export enum Spacing {
+  SPACER_2 = 2,
+  SPACER_4 = 4,
+  SPACER_6 = 6,
+  SPACER_8 = 8,
+  SPACER_10 = 10,
+  SPACER_12 = 12,
+  SPACER_16 = 16,
+  SPACER_20 = 20,
+  SPACER_24 = 24,
+  SPACER_28 = 28,
+  SPACER_32 = 32,
+  SPACER_36 = 36,
+  SPACER_40 = 40,
+}
