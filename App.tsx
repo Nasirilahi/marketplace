@@ -1,41 +1,19 @@
 import React from 'react';
-import {SafeAreaView, View, StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
+import Toast from 'react-native-toast-message';
 import store from './app/store/configureStore';
-import IntroText from './app/components/IntroText';
+import ScreenManager from './app/ScreenManager';
 
 function App() {
   return (
     <Provider store={store}>
-      <SafeAreaView style={styles.screen}>
-        <View style={styles.content}>
-          <IntroText />
-          {/* <AddTaskForm onSubmit={handleAddTask} />
-        {tasks.length === 0 ? (
-          <IntroText />
-        ) : (
-          <TaskList
-            tasks={tasks}
-            onToggleTaskStatus={handleToggleTaskStatus}
-            onDeleteTask={handleDeleteTask}
-          />
-        )} */}
-        </View>
-      </SafeAreaView>
+      <NavigationContainer>
+        <ScreenManager />
+      </NavigationContainer>
+      <Toast />
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-  content: {
-    flex: 1,
-    paddingTop: 20,
-    color: 'red',
-  },
-});
 
 export default App;

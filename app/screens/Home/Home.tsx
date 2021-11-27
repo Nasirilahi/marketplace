@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {getProductsList} from '../actions/fetchProductsList';
-import ProductCard from './ProductCard';
+import {getProductsList} from '../../actions/fetchProductsList';
+import ProductCard from '../../components/ProductCard';
 
-function IntroText() {
+const Home = () => {
   const [currentItemsInCart, setCurrentItemsInCart] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ function IntroText() {
       )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   content: {
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IntroText;
+export default Home;

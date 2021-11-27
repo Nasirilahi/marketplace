@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {Colors} from '../../constants';
 
 const {GRC1, GRC3, GRG3, GRC4} = Colors;
-console.log('Colors', Colors);
+
 const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
