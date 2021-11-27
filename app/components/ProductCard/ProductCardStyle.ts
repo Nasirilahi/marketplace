@@ -6,8 +6,9 @@ const {GRC1, GRC3, GRG3, GRC4} = Colors;
 const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
-    marginBottom: 20,
     flexDirection: 'row',
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   thumnailContainer: {
     marginRight: 10,
@@ -15,12 +16,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   productThumbnail: {
-    borderRadius: 5,
+    borderRadius: 4,
     width: 65,
     height: 65,
   },
   descriptionContainer: {
     flex: 1,
+  },
+  detailWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   descriptionTitle: {
     fontSize: 14,
@@ -58,6 +64,7 @@ const styles = StyleSheet.create({
     color: GRC4,
     fontWeight: 'bold',
   },
+  atcButton: {display: 'flex', justifyContent: 'center'},
 });
 
 export default styles;

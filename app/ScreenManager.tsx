@@ -31,7 +31,7 @@ function SettingsScreen() {
 
 const AppRoutes = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
@@ -39,7 +39,7 @@ const AppRoutes = () => {
 };
 const ScreenManager = () => {
   return (
-    <Stack.Navigator initialRouteName="AuthRoutes">
+    <Stack.Navigator initialRouteName="AppRoutes">
       {/* SplashScreen which will come once for 5 Seconds */}
       {/* <Stack.Screen
         name="SplashScreen"

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import {useSelector} from 'react-redux';
 import AddToCartButton from '../AddToCart';
 import styles from './ProductCardStyle';
 
@@ -19,6 +20,12 @@ interface ProductCardProps {
 }
 const ProductCard = (props: ProductCardProps) => {
   const {product} = props;
+  const currentCart = useSelector(state => state.cartReducer.carts);
+  const idx = currentCart.findIndex(item => item.id === product.id);
+  let currentItemsInCart = 0;
+  if (idx > -1) {
+    currentItemsInCart = currentCart[idx].quantity;
+  }
   return (
     <View style={styles.cardContainer}>
       <View style={styles.thumnailContainer}>
@@ -44,12 +51,7 @@ const ProductCard = (props: ProductCardProps) => {
             {product.description}
           </Text>
         </View>
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
+        <View style={styles.detailWrapper}>
           <View>
             <Text style={styles.descriptionPrice}>₹{product.price}</Text>
             <View style={styles.ratingContainer}>
@@ -59,9 +61,9 @@ const ProductCard = (props: ProductCardProps) => {
             </View>
           </View>
 
-          <View style={{display: 'flex', justifyContent: 'center'}}>
+          <View style={styles.atcButton}>
             <AddToCartButton
-              currentItemsInCart={0}
+              currentItemsInCart={currentItemsInCart}
               onAdd={() => props.onAdd(product)}
               onDisabledAdd={() => {}}
               onRemove={() => props.onRemove(product.id)}

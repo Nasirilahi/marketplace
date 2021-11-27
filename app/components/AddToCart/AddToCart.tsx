@@ -60,7 +60,7 @@ const AddToCartTinyButton = (props: Props): React.ReactElement => {
         onPress={props.onRemove}
         activeOpacity={0.6}
         underlayColor="transparent"
-        hitSlop={{left: 20}}>
+        hitSlop={{right: 20}}>
         <Animated.View style={animatedStyles.productIconLeftContainer}>
           <View style={styles.productIconLeftContainer}>
             <Icon

@@ -66,6 +66,7 @@ const addToCartButtonStyles = (isDesktop?: boolean) =>
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: Radius.RADIUS_4,
+      right: 6,
     },
     quantityTextContainer: {
       width: 20,

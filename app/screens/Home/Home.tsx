@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {getProductsList} from '../../actions/fetchProductsList';
 import ProductCard from '../../components/ProductCard';
+import {Colors} from '../../constants';
+import {ADD_TO_CART, REMOVE_CART} from '../../constants';
 
 const Home = () => {
-  const [currentItemsInCart, setCurrentItemsInCart] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
   const {isLoading, error, products} = useSelector(
     ({productsData: productsDataStore}) => productsDataStore,
@@ -23,9 +23,9 @@ const Home = () => {
     );
   }
 
-  const onAdd = (product) => console.log('Add', product);
+  const onAddToCart = clickedItem => dispatch({type: ADD_TO_CART, clickedItem});
 
-  const onRemove = (id) => console.log('Remove', id);
+  const onRemove = (id: number) => dispatch({type: REMOVE_CART, id});
 
   return (
     <View style={styles.content}>
@@ -34,10 +34,14 @@ const Home = () => {
         <FlatList
           data={products}
           renderItem={({item}) => (
-            <ProductCard product={item} onAdd={onAdd} onRemove={onRemove} />
+            <ProductCard
+              product={item}
+              onAdd={onAddToCart}
+              onRemove={onRemove}
+            />
           )}
           keyExtractor={product => product.id.toString()}
-          style={{paddingLeft: 10, paddingRight: 10}}
+          ItemSeparatorComponent={() => <View style={styles.seperator} />}
         />
       ) : (
         <Text style={styles.paragraph}>Empty</Text>
@@ -56,6 +60,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 17,
     fontWeight: '500',
+  },
+  seperator: {
+    height: 1,
+    backgroundColor: Colors.GRC5,
+    marginBottom: 20,
+    marginTop: 20,
   },
 });
 
