@@ -2,8 +2,14 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import IconMat from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from './screens/Home';
 import LoginScreen from './screens/Login';
+import CartScreen from './screens/Cart';
+import ThankYou from './screens/ThankYou';
+
+import {Colors} from './constants';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,7 +30,7 @@ const AuthRoutes = () => {
 function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
+      <Text>Catgories!</Text>
     </View>
   );
 }
@@ -32,8 +38,38 @@ function SettingsScreen() {
 const AppRoutes = () => {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({color}) => (
+            <Icon
+              style={{backgroundColor: 'transparent'}}
+              name="home"
+              size={30}
+              color={color}
+            />
+          ),
+          tabBarActiveTintColor: Colors.GRO3,
+          tabBarInactiveTintColor: Colors.GRC4,
+        }}
+      />
+      <Tab.Screen
+        name="Categories"
+        component={SettingsScreen}
+        options={{
+          tabBarIcon: ({color}) => (
+            <IconMat
+              style={{backgroundColor: 'transparent'}}
+              name="category"
+              size={30}
+              color={color}
+            />
+          ),
+          tabBarActiveTintColor: Colors.GRO3,
+          tabBarInactiveTintColor: Colors.GRC4,
+        }}
+      />
     </Tab.Navigator>
   );
 };
@@ -56,6 +92,19 @@ const ScreenManager = () => {
       <Stack.Screen
         name="AppRoutes"
         component={AppRoutes}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CartScreen"
+        component={CartScreen}
+        // options={{headerShown: false}}
+        // options={{
+        //     headerTitle: () => <Text>My Cart</Text>,
+        //   }}
+      />
+      <Stack.Screen
+        name="Thankyou"
+        component={ThankYou}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

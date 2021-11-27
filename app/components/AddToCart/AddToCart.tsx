@@ -22,7 +22,6 @@ const AddToCartTinyButton = (props: Props): React.ReactElement => {
   const wasProductInCart = (prevItemsInCart ?? 0) > 0;
   const isProductAdded = !wasProductInCart && isProductInCart;
   const isProductRemoved = wasProductInCart && !isProductInCart;
-
   useEffect(() => {
     if (isProductAdded) {
       Animated.timing(atcAnimatedValue.current, {
