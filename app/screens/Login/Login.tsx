@@ -20,7 +20,7 @@ interface formData {
 }
 
 const LoginScreen = ({navigation}) => {
-  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
@@ -34,7 +34,7 @@ const LoginScreen = ({navigation}) => {
     }
 
     setLoading(true);
-    const dataToSend = {username: userEmail, password: userPassword};
+    const dataToSend = {username: userName, password: userPassword};
     let formBody = [];
     for (let key in dataToSend) {
       let encodedKey = encodeURIComponent(key);
@@ -68,7 +68,7 @@ const LoginScreen = ({navigation}) => {
   };
 
   const isValid = (): boolean => {
-    if (!validate(ValidateType.TEXT)(userEmail)) {
+    if (!validate(ValidateType.TEXT)(userName)) {
       Toast.show({
         type: 'error',
         text1: 'User',
@@ -101,8 +101,8 @@ const LoginScreen = ({navigation}) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={UserEmail => setUserEmail(UserEmail)}
-              placeholder="Enter Email"
+              onChangeText={useName => setUserName(useName)}
+              placeholder="Enter User Name"
               placeholderTextColor="#8b9cb5"
               autoCapitalize="none"
               keyboardType="email-address"

@@ -66,7 +66,7 @@ const AppRoutes = () => {
 };
 const ScreenManager = () => {
   return (
-    <Stack.Navigator initialRouteName="AppRoutes">
+    <Stack.Navigator initialRouteName="AuthRoutes">
       {/* SplashScreen which will come once for 5 Seconds */}
       {/* <Stack.Screen
         name="SplashScreen"

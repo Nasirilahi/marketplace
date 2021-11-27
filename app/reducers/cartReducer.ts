@@ -1,8 +1,11 @@
-import {ADD_TO_CART, REMOVE_CART} from '../constants/actions/actionsConstants';
+import {
+  ADD_TO_CART,
+  REMOVE_CART,
+  RESET_CART,
+} from '../constants/actions/actionsConstants';
 
 const initialState = {
   carts: [],
-  
 };
 
 const cartsReducer = (state = initialState, action: any) => {
@@ -35,6 +38,9 @@ const cartsReducer = (state = initialState, action: any) => {
       }, [] as CartItemType[]);
       return {...state, carts};
     }
+
+    case RESET_CART:
+      return initialState;
 
     default:
       return state;

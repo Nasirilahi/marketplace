@@ -5,8 +5,10 @@ import {getProductsList} from '../../actions/fetchProductsList';
 import ProductCard from '../../components/ProductCard';
 import Loader from '../../components/Loader';
 import ListHeader from '../../components/ListHeader';
+import NotFountView from '../../components/NotFountView';
+
 import {Colors} from '../../constants';
-import {ADD_TO_CART, REMOVE_CART} from '../../constants';
+import {ADD_TO_CART, REMOVE_CART, SEARCH_PRODUCT_LIST} from '../../constants';
 
 interface HomeProps {
   navigation: any;
@@ -14,11 +16,14 @@ interface HomeProps {
 const Home = ({navigation}: HomeProps) => {
   const [searchText, setSearchText] = useState('');
   const dispatch = useDispatch();
-  const setSearchTextCallback = useCallback(val => {
-    console.log('searchText', searchText);
-    setSearchText(val);
-  }, []);
-  const {isLoading, error, products} = useSelector(
+  const setSearchTextCallback = useCallback(
+    val => {
+      dispatch({type: SEARCH_PRODUCT_LIST, searchKey: val});
+      setSearchText(val);
+    },
+    [dispatch],
+  );
+  const {isLoading, error, products, filteredProducts} = useSelector(
     ({productsData: productsDataStore}) => productsDataStore,
   );
   useEffect(() => {
@@ -33,24 +38,20 @@ const Home = ({navigation}: HomeProps) => {
     );
   }
 
-  const renderEmpty = () => {
-    return (
-      <View>
-        <Text style={styles.paragraph}>Empty</Text>
-      </View>
-    );
-  };
+  const renderEmpty = () => <NotFountView />;
+
   const onAddToCart = (clickedItem: object) =>
     dispatch({type: ADD_TO_CART, clickedItem});
 
   const onRemove = (id: number) => dispatch({type: REMOVE_CART, id});
+  const data = searchText.length ? filteredProducts : products;
   return (
     <View style={styles.content}>
       {isLoading ? (
         <Loader />
       ) : (
         <FlatList
-          data={products}
+          data={data}
           renderItem={({item}) => (
             <ProductCard
               product={item}

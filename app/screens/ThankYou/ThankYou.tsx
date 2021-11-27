@@ -1,9 +1,12 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import {useDispatch} from 'react-redux';
 import Button from '../../components/Button';
 import styles from './ThankYouStyles';
+import {RESET_CART} from '../../constants';
 
 const ThankYou = ({navigation}) => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.emptyContainer}>
       <Image
@@ -16,7 +19,10 @@ const ThankYou = ({navigation}) => {
       </Text>
       <Button
         text={'Keep Shopping'}
-        onPress={() => navigation.replace('AppRoutes')}
+        onPress={() => {
+          navigation.replace('AppRoutes');
+          dispatch({type: RESET_CART});
+        }}
       />
     </View>
   );
