@@ -13,9 +13,9 @@ const Home = ({navigation}) => {
   const {isLoading, error, products} = useSelector(
     ({productsData: productsDataStore}) => productsDataStore,
   );
-//   useEffect(() => {
-//     dispatch(getProductsList());
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getProductsList());
+  }, [dispatch]);
 
   if (error) {
     return (
