@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import Button from '../../components/Button';
 import EmptyCart from '../../components/EmptyCart';
 import HorizontalProductCard from '../../components/HorizontalProductCard';
-import styles from './CartStyles';
+import styles from './CheckoutStyles';
 
 const Cart = ({navigation}) => {
   const cartItems = useSelector(state => state.cartReducer.carts);

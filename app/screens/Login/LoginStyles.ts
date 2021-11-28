@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
     borderColor: GRC5,
     height: 40,
     alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
     borderRadius: 30,
     marginLeft: 35,
     marginRight: 35,

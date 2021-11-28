@@ -1,28 +1,25 @@
 import Realm from 'realm';
 
-class Task extends Realm.Object {
+class Token {
   _id!: Realm.BSON.ObjectId;
-  description!: string;
-  isComplete!: boolean;
+  token!: string;
 
-  static generate(description: string) {
+  static generate(token: string) {
     return {
       _id: new Realm.BSON.ObjectId(),
-      description,
-      isComplete: false,
+      token,
     };
   }
 
   // To use a class as a Realm object type, define the object schema on the static property "schema".
   static schema = {
-    name: 'Task',
+    name: 'Token',
     primaryKey: '_id',
     properties: {
       _id: 'objectId',
-      description: 'string',
-      isComplete: {type: 'bool', default: false},
+      token: 'string',
     },
   };
 }
 
-export default Task;
+export default Token;
