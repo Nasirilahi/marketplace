@@ -45,9 +45,9 @@ const SplashScreen = ({navigation}) => {
     setTimeout(() => {
       setAnimating(false);
       AsyncStorage.getItem('token').then((value: string) => {
-        navigation.replace(value === null ? 'Auth' : 'AppRoutes');
+        navigation.replace(value === null ? 'AuthRoutes' : 'AppRoutes');
       });
-    }, 5000);
+    }, 3000);
   }, [navigation]);
 
   return (

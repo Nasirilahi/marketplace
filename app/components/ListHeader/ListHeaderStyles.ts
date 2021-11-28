@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
     color: Colors.GRC1,
     fontWeight: 'bold',
   },
-  countLabelContainer:{
+  countLabelContainer: {
     position: 'absolute',
     backgroundColor: 'red',
     width: 16,
     height: 16,
     borderRadius: 15 / 2,
-    right: -5,
+    right: 30,
     top: 0,
     alignItems: 'center',
     justifyContent: 'center',
