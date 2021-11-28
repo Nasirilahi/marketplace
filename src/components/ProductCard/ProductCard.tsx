@@ -4,20 +4,24 @@ import {useSelector} from 'react-redux';
 import AddToCartButton from '../AddToCart';
 import styles from './ProductCardStyle';
 
-interface ProductCardProps {
-  product: {
-    image: string;
-    title: string;
-    description: string;
-    price: string;
-    rating: {
-      rate: string;
-      count: string;
-    };
+export interface IProduct {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+  price: string;
+  rating: {
+    rate: string;
+    count: string;
   };
+}
+
+interface ProductCardProps {
+  product: IProduct;
   onAdd: () => void;
   onRemove: () => void;
 }
+
 const ProductCard = (props: ProductCardProps) => {
   const {product} = props;
   const currentCart = useSelector(state => state.cartReducer.carts);

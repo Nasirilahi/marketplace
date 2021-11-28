@@ -3,9 +3,30 @@ import {
   REMOVE_CART,
   RESET_CART,
 } from '../constants/actions/actionsConstants';
+import {IProduct} from '../components/ProductCard';
 
 const initialState = {
   carts: [],
+  totalCost: 0,
+  tax: 0,
+};
+
+const calculateTotal = (cart: IProduct) => {
+  let total = 0;
+  cart.forEach(item => {
+    const subtotal = Number(item.price) * Number(item.quantity);
+    total += subtotal;
+  });
+  return total;
+};
+
+const calculateTax = (cart: IProduct) => {
+  let tax = 0;
+  cart.forEach(item => {
+    const subtotal = Number(item.price) * Number(item.quantity);
+    tax += subtotal * 0.15;
+  });
+  return tax;
 };
 
 const cartsReducer = (state = initialState, action: any) => {
@@ -20,9 +41,19 @@ const cartsReducer = (state = initialState, action: any) => {
             ? {...item, quantity: item.quantity + 1}
             : item,
         );
-        return {...state, carts};
+        return {
+          ...state,
+          carts,
+          totalCost: calculateTotal(carts),
+          tax: calculateTax(carts),
+        };
       }
-      return {...state, carts: [...carts, {...clickedItem, quantity: 1}]};
+      return {
+        ...state,
+        carts: [...carts, {...clickedItem, quantity: 1}],
+        totalCost: calculateTotal(carts),
+        tax: calculateTax(carts),
+      };
     }
 
     case REMOVE_CART: {
@@ -36,7 +67,12 @@ const cartsReducer = (state = initialState, action: any) => {
           return [...ack, item];
         }
       }, [] as CartItemType[]);
-      return {...state, carts};
+      return {
+        ...state,
+        carts,
+        totalCost: calculateTotal(carts),
+        tax: calculateTax(carts),
+      };
     }
 
     case RESET_CART:

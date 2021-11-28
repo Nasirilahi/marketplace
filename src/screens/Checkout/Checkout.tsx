@@ -8,6 +8,8 @@ import styles from './CheckoutStyles';
 
 const Cart = ({navigation}) => {
   const cartItems = useSelector(state => state.cartReducer.carts);
+  const totalCost = useSelector(state => state.cartReducer.totalCost);
+  const totalTax = useSelector(state => state.cartReducer.tax);
   const hasItems = cartItems.length > 0;
   const renderEmptyView = () => <EmptyCart navigation={navigation} />;
   const renderHeaderView = () =>
@@ -33,15 +35,22 @@ const Cart = ({navigation}) => {
           </View>
           <View style={styles.mrpContainer}>
             <Text>MRP</Text>
-            <Text> ₹100</Text>
+            <Text> ₹{totalCost.toFixed(2)}</Text>
           </View>
           <View style={styles.mrpContainer}>
             <Text>Delivery Charges</Text>
             <Text> ₹100</Text>
           </View>
           <View style={styles.mrpContainer}>
+            <Text>Tax</Text>
+            <Text> ₹{totalTax.toFixed(2)}</Text>
+          </View>
+          <View style={styles.mrpContainer}>
             <Text style={styles.totalLabel}>Bill total</Text>
-            <Text style={styles.totalLabel}> ₹100</Text>
+            <Text style={styles.totalLabel}>
+              {' '}
+              ₹{(totalCost + 100 + totalTax).toFixed(2)}
+            </Text>
           </View>
         </View>
         <View style={{padding: 10, marginTop: 10, backgroundColor: 'white'}}>
