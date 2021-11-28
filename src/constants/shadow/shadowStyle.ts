@@ -1,6 +1,6 @@
-import { ViewStyle } from 'react-native';
-import { ShadowType } from './shadowType';
-import { ShadowColor } from './shadowColor';
+import {ViewStyle} from 'react-native';
+import {ShadowType} from './shadowType';
+import {ShadowColor} from './shadowColor';
 
 const shadowStyle: Record<ShadowType, ViewStyle> = {
   [ShadowType.ELEVATION_2]: {

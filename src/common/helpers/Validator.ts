@@ -6,7 +6,8 @@ const validEmailRegex = RegExp(
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
 );
 
-const validateEmail = (email: string): boolean => email && email.length && validEmailRegex.test(email);
+const validateEmail = (email: string): boolean =>
+  email && email.length && validEmailRegex.test(email);
 
 export const ValidateType = {
   TEXT: 'TEXT',
