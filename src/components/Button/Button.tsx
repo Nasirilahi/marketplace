@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
-import styles from './ButtonStyles'
+import styles from './ButtonStyles';
 
 interface ButtonProps {
   onPress?: (e: {stopPropagation: () => void; persist: () => void}) => void;
