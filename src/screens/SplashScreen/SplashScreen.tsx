@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // import Realm from 'realm';
 // import Token from '../../models/Token';
 
+// tried realm to read/write token value in realm DB locally but facing issue while reading from it. So switched to localstroge.
 const SplashScreen = ({navigation}) => {
   //State for ActivityIndicator animation
   const [animating, setAnimating] = useState(true);
