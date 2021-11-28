@@ -98,7 +98,7 @@ const LoginScreen = ({navigation}: LoginProps) => {
             realm?.create('Token', Token.generate(reponse.token));
           });
           AsyncStorage.setItem('token', reponse.token);
-          // navigation.replace('AppRoutes');
+          navigation.replace('AppRoutes');
         } else {
           setErrortext('Error');
           console.log('Please check your email id or password');

@@ -24,15 +24,17 @@ const Categories = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        categories.map(categoryItem => (
+        categories.map((categoryItem, index) => (
           <View
+            key={index}
             style={{
               borderWidth: 1,
               borderColor: '#CCCCCC',
-              height: 100, 
-              width: 100,
               margin: 10,
-              padding: 30,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 20,
             }}>
             <Text>{categoryItem}</Text>
           </View>
