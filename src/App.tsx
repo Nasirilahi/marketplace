@@ -7,7 +7,7 @@ import ScreenManager from './ScreenManager';
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store()}>
       <NavigationContainer>
         <ScreenManager />
       </NavigationContainer>

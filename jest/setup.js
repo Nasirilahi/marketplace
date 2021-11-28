@@ -41,6 +41,7 @@ jest.mock('react-native-gesture-handler', () => {
 
 jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
 
+require('jest-fetch-mock').enableMocks();
 
 Enzyme.configure({
   adapter: new Adapter(),

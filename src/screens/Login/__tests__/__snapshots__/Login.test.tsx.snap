@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login handles valid input submission 1`] = `
+Array [
+  Array [
+    "https://fakestoreapi.com/auth/login",
+    Object {
+      "body": "username=example&password=asdf",
+      "headers": Object {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      },
+      "method": "POST",
+    },
+  ],
+]
+`;

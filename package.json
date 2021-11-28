@@ -42,6 +42,9 @@
     "@babel/preset-react": "^7.16.0",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-native": "^4.0.4",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react-native": "^8.0.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.64.5",
     "@types/react-test-renderer": "^16.9.2",
@@ -69,7 +72,11 @@
   },
   "jest": {
     "automock": false,
+    "resetMocks": false,
     "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
     "transform": {
       "^.+\\\\.[jt]sx?$": "babel-jest"
     },

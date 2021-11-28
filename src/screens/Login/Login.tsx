@@ -152,6 +152,7 @@ const LoginScreen = ({navigation}: LoginProps) => {
               returnKeyType="next"
               underlineColorAndroid="#f000"
               blurOnSubmit={false}
+              testID="usernameInput"
             />
           </View>
           <View style={styles.SectionStyle}>
@@ -166,6 +167,7 @@ const LoginScreen = ({navigation}: LoginProps) => {
               secureTextEntry={true}
               underlineColorAndroid="#f000"
               returnKeyType="next"
+              testID="passwordInput"
             />
           </View>
           {errortext !== '' ? (

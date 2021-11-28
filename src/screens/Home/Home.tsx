@@ -46,7 +46,7 @@ const Home = ({navigation}: HomeProps) => {
   const onRemove = (id: number) => dispatch({type: REMOVE_CART, id});
   const data = searchText.length ? filteredProducts : products;
   return (
-    <View style={styles.content}>
+    <View style={styles.content} testID="homeView">
       {isLoading ? (
         <Loader />
       ) : (

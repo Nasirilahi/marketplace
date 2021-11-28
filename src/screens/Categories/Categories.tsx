@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Loader from '../../components/Loader';
 import {API_URL} from '../../constants';
 
@@ -20,22 +20,12 @@ const Categories = () => {
       });
   }, []);
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={styles.container}>
       {isLoading ? (
         <Loader />
       ) : (
         categories.map((categoryItem, index) => (
-          <View
-            key={index}
-            style={{
-              borderWidth: 1,
-              borderColor: '#CCCCCC',
-              margin: 10,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 20,
-            }}>
+          <View key={index} style={styles.categoryView} testID="categoryView">
             <Text>{categoryItem}</Text>
           </View>
         ))
@@ -44,4 +34,16 @@ const Categories = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {flex: 1, justifyContent: 'center', alignItems: 'center'},
+  categoryView: {
+    borderWidth: 1,
+    borderColor: '#CCCCCC',
+    margin: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+});
 export default Categories;

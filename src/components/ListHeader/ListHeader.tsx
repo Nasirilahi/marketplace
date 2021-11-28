@@ -21,7 +21,7 @@ const ListHeader = ({
   const cartCount = useSelector(state => state.cartReducer.carts);
   const hasItemsInCart = cartCount.length > 0;
   return (
-    <View style={styles.cardContainer}>
+    <View style={styles.cardContainer} testID="headerView">
       <View style={styles.titleContainer}>
         <Text style={styles.headerTitle}>market</Text>
         <View

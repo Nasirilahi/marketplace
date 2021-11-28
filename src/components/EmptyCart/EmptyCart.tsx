@@ -5,7 +5,7 @@ import styles from './EmptyCartStyles';
 
 const EmptyCart = ({navigation}) => {
   return (
-    <View style={styles.emptyContainer}>
+    <View style={styles.emptyContainer} testID="emptyView">
       <Image
         source={require('../../common/assets/empty_cart.png')}
         style={styles.emptyImage}
