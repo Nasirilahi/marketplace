@@ -54,4 +54,6 @@ $ yarn start:web
 ```
 
 
-Notes:- Right now web is not configured to show all projects but only to show how RN view can be reused in web app. 
+Note1:- Right now web is not configured to show all projects but only to show how RN view can be reused in web app. 
+Note2:- Once app is successfully is running then this app can be used to check username/password to login in to the app 'https://fakestoreapi.com/users'
+
