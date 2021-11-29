@@ -7,7 +7,6 @@
     ],
     "allowJs": true,
     "jsx": "react",
-    "noEmit": true,
     "isolatedModules": true,
     "strict": true,
     "moduleResolution": "node",
@@ -25,6 +24,6 @@
     "jest.config.js"
   ],
   "include": [
-    "src"
+    "src/web"
   ]
 }
