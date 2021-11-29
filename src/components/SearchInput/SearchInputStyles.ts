@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.GRC5,
     borderRadius: 4,
     paddingLeft: 10,
+    height: 40,
   },
   textInput: {
     flex: 1,

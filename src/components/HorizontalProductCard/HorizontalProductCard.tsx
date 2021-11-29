@@ -30,7 +30,7 @@ const HorizontalProductCard = ({cartItem, currentItemsInCart}) => {
           />
         </View>
         <View style={styles.totalPriceContainer}>
-          <Text style={styles.totalPricetage}>₹{totalPrice}</Text>
+          <Text style={styles.totalPricetage}>₹{totalPrice.toFixed(2)}</Text>
         </View>
       </View>
     </View>
