@@ -59,7 +59,7 @@ Note2:- Once app is successfully is running then this app can be used to check u
 
 
 Below are the screenshots for home page, checkout and empty checkout screen in Android view. 
-![Home](https://user-images.githubusercontent.com/18344021/157851657-8414acde-7bd6-42a6-8839-6534729a18be.png)
-![Checkout](https://user-images.githubusercontent.com/18344021/157851685-4f3cc7a9-9fa6-4fac-9266-a13aab3cd49f.png) 
-![emtpycheckout](https://user-images.githubusercontent.com/18344021/157851785-94cd69eb-5e00-4567-9a14-0b8308580dce.png)
+
+![MergedImages](https://user-images.githubusercontent.com/18344021/157852308-20f4252d-1dd9-4303-98eb-b7c31f81134a.png)
+
 
