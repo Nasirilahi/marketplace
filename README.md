@@ -60,6 +60,13 @@ Note2:- Once app is successfully is running then this app can be used to check u
 
 Below are the screenshots for home page, checkout and empty checkout screen in Android view. 
 
+#### Android View
 ![MergedImages](https://user-images.githubusercontent.com/18344021/157852308-20f4252d-1dd9-4303-98eb-b7c31f81134a.png)
+
+
+#### iOS View
+
+![MergedImages](https://user-images.githubusercontent.com/18344021/157900705-f8d5b753-87e9-46f3-8b50-83401a0651ff.png)
+
 
 
