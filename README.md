@@ -1,4 +1,4 @@
-# Notch Ecommerce
+# Ecommerce Market place in React native
 
 
 This is a react-native Android/iOS application for show products market place https://fakestoreapi.com/docs. User can Login, browse products, search for products, add to cart and checkout products. 
@@ -56,4 +56,10 @@ $ yarn start:web
 
 Note1:- Right now web is not configured to show all projects but only to show how RN view can be reused in web app. 
 Note2:- Once app is successfully is running then this app can be used to check username/password to login in to the app 'https://fakestoreapi.com/users'
+
+
+Below are the screenshots for home page, checkout and empty checkout screen in Android view. 
+![Home](https://user-images.githubusercontent.com/18344021/157851657-8414acde-7bd6-42a6-8839-6534729a18be.png)
+![Checkout](https://user-images.githubusercontent.com/18344021/157851685-4f3cc7a9-9fa6-4fac-9266-a13aab3cd49f.png) 
+![emtpycheckout](https://user-images.githubusercontent.com/18344021/157851785-94cd69eb-5e00-4567-9a14-0b8308580dce.png)
 
